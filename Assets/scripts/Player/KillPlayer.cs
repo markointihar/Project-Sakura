@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class KillPlayer : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class KillPlayer : MonoBehaviour
     void OnCollisionEnter2D(Collision2D col)
     {
         if(col.transform.CompareTag("Player"))
-        col.transform.position = spawnPoint.position;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    
     }
 }

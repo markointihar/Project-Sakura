@@ -12,7 +12,7 @@ public class MeleeEnemy : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
     private Animator anim;
-    private Health playerHealth;
+    private Health1 playerHealth;
 
     public int maxHealth;
     int currentHealth;
@@ -39,7 +39,7 @@ public class MeleeEnemy : MonoBehaviour
 
     void Die()
     {
-        Debug.Log("Enemy died");
+        
 
         anim.SetBool("isDead", true);
 
@@ -84,7 +84,7 @@ public class MeleeEnemy : MonoBehaviour
           0, Vector2.left, 0, playerLayer);
         
         if(hit.collider != null)
-        playerHealth = hit.transform.GetComponent<Health>();
+        playerHealth = hit.transform.GetComponent<Health1>();
 
         return hit.collider != null;
     }
