@@ -17,7 +17,9 @@ public class PlayerMovement : MonoBehaviour
    private float wallJumpCooldown;
    private float horizontalInput;
     bool isDashing = false;
-
+    //gungin gin ga gun gin gin ga gun gin gin ga
+[SerializeField] private AudioSource jumpSoundEffect;
+//gungin ging ga gun gi gin ga gun gi gin ga gun gi gin ga
     private void Awake()
     {
         //Grab references for rigidbody and animator from object
@@ -80,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (horizontalInput == 0)
             {
+                  jumpSoundEffect.Play();
                 body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
                 transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
             }

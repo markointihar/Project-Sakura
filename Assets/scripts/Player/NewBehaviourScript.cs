@@ -16,7 +16,9 @@ public class NewBehaviourScript : MonoBehaviour
    private BoxCollider2D boxCollider;
    private float wallJumpCooldown;
    private float HorizontalInput;
-  
+   //---------------------------------------------------
+  [SerializeField] private AudioSource jumpSoundEffect;
+  //----------------------------------------------------
    bool isDashing = false;
 
    private void Awake(){
@@ -95,6 +97,9 @@ public class NewBehaviourScript : MonoBehaviour
        {
           if(HorizontalInput == 0)
           {
+             //-----------------------------
+            jumpSoundEffect.Play();
+            //------------------------------
              body.velocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 10, 0);
              transform.localScale = new Vector3(-Mathf.Sign(transform.localScale.x), transform.localScale.y, transform.localScale.z);
           }
